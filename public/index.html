@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Fastify Client</title>
+</head>
+<body>
+    <button id="apiButton">Сделать запрос на АПИ</button>
+
+    <script>
+        document.getElementById('apiButton').addEventListener('click', async () => {
+            try {
+                const response = await fetch('/api');
+                const message = await response.text();
+                console.log(message);
+            } catch (error) {
+                console.error('Ошибка запроса:', error);
+            }
+        });
+    </script>
+</body>
+</html>
