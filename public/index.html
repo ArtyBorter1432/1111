@@ -2,19 +2,60 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Fastify Client</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        
+        .container {
+            text-align: center;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #2dd3a1df;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #6a2eaf;
+        }
+    </style>
 </head>
 <body>
-    <button id="apiButton">Сделать запрос на АПИ</button>
+    <div class="container">
+        <h1>Fastify приложение</h1>
+        <button id="apiButton">Сделать запрос на АПИ</button>
+    </div>
 
     <script>
         document.getElementById('apiButton').addEventListener('click', async () => {
             try {
                 const response = await fetch('/api');
-                const message = await response.text();
-                console.log(message);
+                const data = await response.json();
+                
+                if (data.message === 'Запрос прошел успешно') {
+                    console.log('Запрос прошел успешно');
+                }
             } catch (error) {
-                console.error('Ошибка запроса:', error);
+                console.error('Ошибка при запросе:', error);
             }
         });
     </script>

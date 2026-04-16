@@ -10,7 +10,10 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@fastify/static": "^9.0.0",
-    "fastify": "^5.8.2"
+    "@fastify/formbody": "^8.0.2",
+    "@fastify/static": "^9.1.1",
+    "@fastify/view": "^11.1.1",
+    "fastify": "^5.8.5",
+    "pug": "^3.0.4"
   }
 }

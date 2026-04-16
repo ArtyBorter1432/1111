@@ -1,0 +1,15 @@
+doctype html
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    title Список пользователей
+    link(rel="stylesheet", href="/style.css")
+  body
+    h1 Пользователи
+    if users.length
+      ul
+        each user in users
+          li #{user.name} — #{user.email}
+    else
+      p Пользователей пока нет.
+    a(href="/users/create") ➕ Добавить пользователя.
