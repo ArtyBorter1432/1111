@@ -5,11 +5,28 @@ html(lang="ru")
     title Список пользователей
     link(rel="stylesheet", href="/style.css")
   body
-    h1 Пользователи
-    if users.length
-      ul
-        each user in users
-          li #{user.name} — #{user.email}
-    else
-      p Пользователей пока нет.
-    a(href="/users/create") ➕ Добавить пользователя.
+    div.container
+      h1 👥 Пользователи
+      
+      if users && users.length
+        table
+          thead
+            tr
+              th ID
+              th Имя
+              th Email
+              th Действия
+          tbody
+            each user in users
+              tr
+                td= user.id
+                td= user.name
+                td= user.email
+                td.actions
+                  a(href=`/users/${user.id}/edit`, class="btn-edit") ✏️ Редактировать
+                  form(action=`/users/${user.id}/delete`, method="POST", class="delete-form")
+                    button(type="submit", class="btn-delete", onclick="return confirm('Удалить пользователя?')") 🗑️ Удалить
+      else
+        div.empty 😕 Пользователей пока нет
+      
+      a(href="/users/create", class="btn-create") ➕ Добавить пользователя

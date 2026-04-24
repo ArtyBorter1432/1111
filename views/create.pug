@@ -5,16 +5,18 @@ html(lang="ru")
     title Создать пользователя
     link(rel="stylesheet", href="/style.css")
   body
-    h1 Новый пользователь
-    form(method="POST", action="/users")
-      label Имя:
-      br
-      input(type="text", name="name", required)
-      br
-      label Email:
-      br
-      input(type="email", name="email", required)
-      br
-      button(type="submit") Создать
-    br
-    a(href="/users") ← Назад к списку
+    div.container
+      h1 ✨ Новый пользователь
+      
+      form(method="POST", action="/users")
+        div.form-group
+          label Имя:
+          input(type="text", name="name", required)
+        
+        div.form-group
+          label Email:
+          input(type="email", name="email", required)
+        
+        div.buttons
+          button(type="submit", class="btn btn-success") ✅ Создать
+          a(href="/users", class="btn btn-secondary") ↩️ Отмена

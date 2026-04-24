@@ -1,8 +1,10 @@
 {
   "name": "fastify-server",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -14,6 +16,10 @@
     "@fastify/static": "^9.1.1",
     "@fastify/view": "^11.1.1",
     "fastify": "^5.8.5",
-    "pug": "^3.0.4"
+    "pug": "^3.0.4",
+    "sqlite3": "^6.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }

@@ -1,0 +1,22 @@
+doctype html
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    title Редактировать пользователя
+    link(rel="stylesheet", href="/style.css")
+  body
+    div.container
+      h1 ✏️ Редактирование пользователя
+      
+      form(method="POST", action=`/users/${user.id}/edit`)
+        div.form-group
+          label Имя:
+          input(type="text", name="name", value=user.name, required)
+        
+        div.form-group
+          label Email:
+          input(type="email", name="email", value=user.email, required)
+        
+        div.buttons
+          button(type="submit", class="btn btn-primary") 💾 Сохранить
+          a(href="/users", class="btn btn-secondary") ↩️ Отмена
